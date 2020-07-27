@@ -1,6 +1,47 @@
-<h1>Editing User</h1>
+ 
 
-<%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <i class="fa fa-fw fa-edit"></i>
+            <strong>Editing User</strong>
+            <%= link_to users_path , class:'float-right btn btn-purple'  do %>
+            <i class="fa fa-fw fa-globe"> </i> Search
+            <% end %>
+        </div>
+
+        <div class="col-md-12">
+            <% if @user.errors.any? %>
+            <hr>
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <% @user.errors.each do |attr, msg| %>
+                <%= "#{attr} #{msg}" if @user.errors[attr].first == msg %>
+                <% end %>
+            </div>
+
+            <% end %>
+        </div>
+
+        <div class="card-body">
+            <div class="col-sm-8">
+
+                <h5 class="card-title">
+                    Fields with <span class="text-danger">*</span> are mandatory!
+                </h5>
+
+                <%= render 'form', user: @user %>
+        
+                <div class="form-group"> 
+                    <%= link_to  @user,  class:'btn btn-primary '  do %>
+                    <i class="fa fa-fw fa-edit"> </i> Show
+                    <% end %> 
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

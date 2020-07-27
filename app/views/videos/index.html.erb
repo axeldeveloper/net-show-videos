@@ -2,10 +2,10 @@
     <div class="card">
         <div class="card-header">
             <i class="fa fa-fw fa-globe"></i>
-            <strong>  Lista de registros  </strong>
+            <strong>  Lists Videos  </strong>
             <%= link_to videos_new_path, class:'float-right btn btn-purple btn-sm'  do %>
             <i class="fa fa-fw fa-plus-circle"> </i> 
-                Novo registro
+                New video
             <% end %>
         </div>
 
@@ -25,10 +25,10 @@
                                 <div>
                                     <button type="submit" name="submit" value="search" id="submit"
                                         class="btn btn-purple">
-                                        <i class="fa fa-fw fa-search"></i> Buscar
+                                        <i class="fa fa-fw fa-search"></i> Search
                                     </button>
                                     <%= link_to videos_path , class:'btn btn-danger btn-sm"'  do %>
-                                        <i class="fa fa-fw fa-minus-circle"> </i> Limpar
+                                        <i class="fa fa-fw fa-minus-circle"> </i> Clear
                                     <% end %>
                                 </div>
                             </div>
@@ -47,15 +47,15 @@
             <thead>
                 <tr class="bg-purple text-white">
                     <th>Nome</th>
-                    <th>URL</th>
-                    <th class="text-center">Opções</th>
+          
+                    <th colspan="3" class="text-center">Options</th>
                 </tr>
             </thead>
             <tbody>
                 <% @videos.each do |item| %>
                 <tr>
                     <td><%= item.nome %></td>
-                    <td><%= item.url %></td>
+                   
                     <td align="center"> 
                         <%= link_to   video_path(item), class: "btn btn-purple"  do %>
                             <i class="fa fa-fw fa-eye"> </i>

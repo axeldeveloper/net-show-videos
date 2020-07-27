@@ -11,7 +11,7 @@
 
         <div class="card-body">
             <div class="col-sm-12">
-                 <%= form_tag videos_path, :method => 'get' do %>
+                 <%= form_tag users_path, :method => 'get' do %>
                     <div class="row">
                         <div class="col-sm-8">
                             <div class="form-group">
@@ -25,10 +25,10 @@
                                 <div>
                                     <button type="submit" name="submit" value="search" id="submit"
                                         class="btn btn-purple">
-                                        <i class="fa fa-fw fa-search"></i> Buscar
+                                        <i class="fa fa-fw fa-search"></i> Search
                                     </button>
-                                    <%= link_to videos_path , class:'btn btn-danger btn-sm"'  do %>
-                                        <i class="fa fa-fw fa-minus-circle"> </i> Limpar
+                                    <%= link_to users_path , class:'btn btn-danger btn-sm"'  do %>
+                                        <i class="fa fa-fw fa-minus-circle"> </i> Clear
                                     <% end %>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                 <tr class="bg-purple text-white">
                     <th>Name</th>
                     <th>Email</th>
-                    <th colspan="3"></th>
+                    <th colspan="3" class="text-center">Options</th>
                 </tr>
             </thead>
 
@@ -77,38 +77,32 @@
                                 data-target="#exampleModal<%= user.id %>">
                             <i class="fa fa-fw fa-trash"> </i>
                         </button> 
-                        
-                       
-                        
-                        <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
                     </td>
-                                  <div class="modal fade" id="exampleModal<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">                   
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Delete this thing?</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-
-                                                <div class="modal-body">
-                                                    <p><%= user.name %></p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <%= link_to video_path(user.id), method: :delete, class: "btn btn-danger"  do %>
-                                                    <i class="fa fa-fw fa-trash"> </i>
-                                                    <% end %>
-                                                    <a href="#" data-dismiss="modal" class="btn btn-purple">
-                                                    <i class="fa fa-fw fa-close"> </i>
-                                                    </a>
-                                                </div>
-                                            </div>   
-                                        </div>
+                    <div class="modal fade" id="exampleModal<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">                   
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Delete this thing?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                </div>
-                    
-                    
+
+                                    <div class="modal-body">
+                                        <p><%= user.name %></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <%= link_to user_path(user.id), method: :delete, class: "btn btn-danger"  do %>
+                                        <i class="fa fa-fw fa-trash"> </i>
+                                        <% end %>
+                                        <a href="#" data-dismiss="modal" class="btn btn-purple">
+                                        <i class="fa fa-fw fa-close"> </i>
+                                        </a>
+                                    </div>
+                                </div>   
+                            </div>
+                        </div>
+                    </div>             
                 </tr>
                 <% end %>
             </tbody>

@@ -1,14 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="container"> 
+	<div class="card">
+        <div class="card-header">
+            <i class="fa fa-fw fa-edit"></i> 
+            <strong>View User</strong>          
+            <%= link_to users_path , class:'float-right btn btn-purple btn-sm'  do %>
+                <i class="fa fa-fw fa-globe"> </i> Search
+            <% end %>
+        </div>
+			
+    	
+		<div class="card-body">
+			<div class="col-sm-8">
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+					<div class="form-group">
+						<label class="col-form-label col-form-label-lg"> Name </label>
+						<%= label_tag @user.name  %>  
+					</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+					<div class="form-group">
+						<label class="col-form-label col-form-label-lg"> Email </label>
+						<%= label_tag @user.email  %>						
+					</div>
+	
+					<div class="form-group">
+						
+            <%= link_to edit_user_path(@user),  class:'btn btn-purple' do %>
+							<i class="fa fa-fw fa-edit"> </i> Edit
+						<% end %> |
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+						<%= link_to users_path , class:'btn btn-danger'  do %>
+							<i class="fa fa-fw fa-minus-circle"> </i> Back
+						<% end %>
+
+					</div>
+			</div>
+		</div>
+	
+	</div>	  
+</div>  
+

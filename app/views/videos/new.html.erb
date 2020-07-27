@@ -2,9 +2,9 @@
 		<div class="card">
             <div class="card-header">
 				<i class="fa fa-fw fa-edit"></i> 
-				<strong>Incluir registros</strong>          
+				<strong>New videos </strong>          
 				<%= link_to videos_path , class:'float-right btn btn-purple'  do %>
-					<i class="fa fa-fw fa-globe"> </i> Buscar registros
+					<i class="fa fa-fw fa-globe"> </i> Search
 				<% end %>
 			</div>
 			
@@ -25,7 +25,7 @@
 				<div class="col-sm-8">
 	
 					<h5 class="card-title">
-						Campos com são  <span class="text-danger">*</span> obrigatórios!
+						Fields with <span class="text-danger">*</span> are mandatory!
 					</h5>
 					<%= form_for @video, url: {action: :create} do |f| %>   
 	
@@ -41,12 +41,12 @@
 		
 						<div class="form-group">
 							
-							<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">
-								<i class="fa fa-fw fa-edit"></i> Gravar
+							<button type="submit" name="submit" value="submit" id="submit" class="btn btn-purple">
+								<i class="fa fa-fw fa-edit"></i> Record
 							</button>
 	
 							<%= link_to videos_path , class:'btn btn-danger btn-sm"'  do %>
-								<i class="fa fa-fw fa-minus-circle"> </i> Voltar
+								<i class="fa fa-fw fa-minus-circle"> </i> Back
 							<% end %>
 	
 						</div>

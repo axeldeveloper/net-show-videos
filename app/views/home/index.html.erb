@@ -1,9 +1,11 @@
  <div class="py-5">
 
      <div class="container">
-         <div class="row hidden-md-up">
-             
+         <div class="row hidden-md-up">        
              <% @videos.each do |item| %>
+             
+            
+             
              <div class="col-md-4">
                  <!-- Card -->
                  <div class="card">
@@ -34,11 +36,10 @@
                      </div>
 
                      <!-- Card image -->
-                     <div class="view overlay">
-                         <img class="card-img-top rounded-0" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg" alt="Card image cap">
-                         <a href="#!">
-                             <div class="mask rgba-white-slight"></div>
-                         </a>
+                     <div class="view overlay">        
+                        <video id="example-video_<%= item.id %>" class="video-js vjs-default-skin" width=350 height=300  controls>
+                        <source src="<%= item.url %>" type="application/x-mpegURL"></video>
+                        <script> var player = videojs('example-video_<%= item.id %>'); player.play();</script>
                      </div>
 
                      <!-- Card content -->
@@ -49,7 +50,7 @@
                              <!-- Text -->
                              <p class="card-text collapse" id="collapseContent">
                                 Watch the video here
-                                <a href="<%= item.url %>"></a>
+                                <a href="<%= item.url %>">click here</a>
                              </p>
                              <!-- Button -->
                              <a class="btn btn-outline-primary btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse" href="#collapseContent" aria-expanded="false" aria-controls="collapseContent">Details</a>
