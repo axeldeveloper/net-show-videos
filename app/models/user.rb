@@ -8,4 +8,23 @@ class User < ApplicationRecord
   #validates :email, presence: true, uniqueness: true
   before_save { self.email = email.downcase }
 
+  def self.search(search)
+      if search
+          #   find(:all, :conditions => ['nome LIKE ?', "%#{search}%"])
+          self.where("name like ?", "%#{search}%")
+          # events = self.where('name LIKE ? OR place LIKE ? OR description LIKE ?', "%#{query}%", "%#{query}%", "%#{query}%")
+
+      else
+          self.find(:all)
+      end
+  end
+
+  def self.search_by(search)
+      if search
+        self.find_by(name: search)
+      else
+        find(:all)
+      end
+  end
+
 end

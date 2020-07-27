@@ -1,0 +1,60 @@
+<div class="container">  
+		<div class="card">
+            <div class="card-header">
+				<i class="fa fa-fw fa-edit"></i> 
+				<strong>Incluir registros</strong>          
+				<%= link_to videos_path , class:'float-right btn btn-purple'  do %>
+					<i class="fa fa-fw fa-globe"> </i> Buscar registros
+				<% end %>
+			</div>
+			
+			<div class="col-md-12"> 
+				<% if @video.errors.any? %>  
+					<hr> 
+					<div class="alert alert-danger" >
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						<% @video.errors.each do |attr, msg| %>
+                        <%= "#{attr} #{msg}" if @video.errors[attr].first == msg %> 
+                        <% end %>
+					</div> 
+
+				<% end %> 		
+			</div> 
+		
+			<div class="card-body">
+				<div class="col-sm-8">
+	
+					<h5 class="card-title">
+						Campos com são  <span class="text-danger">*</span> obrigatórios!
+					</h5>
+					<%= form_for @video, url: {action: :create} do |f| %>   
+	
+						<div class="form-group">
+							<label class="col-form-label col-form-label-lg"> Nome <span class="text-danger">*</span></label>
+							<%= f.text_field :nome, class: 'form-control form-control-lg' %>  
+						</div>
+	
+						<div class="form-group">
+							<label class="col-form-label col-form-label-lg"> URL <span class="text-danger">*</span></label>
+							<%= f.text_field :url ,  class: 'form-control form-control-lg' %>  
+						</div>
+		
+						<div class="form-group">
+							
+							<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">
+								<i class="fa fa-fw fa-edit"></i> Gravar
+							</button>
+	
+							<%= link_to videos_path , class:'btn btn-danger btn-sm"'  do %>
+								<i class="fa fa-fw fa-minus-circle"> </i> Voltar
+							<% end %>
+	
+						</div>
+	
+					<% end %> 
+	
+				</div>
+			</div>
+	
+		</div>	  
+</div>  

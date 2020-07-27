@@ -12,10 +12,13 @@
 # create controller
 
     rails g controller sessions new create destroy
+    rails g controller videos index show new create edit update destroy
 
 # create model
 
     rails generate model User name:string email:uniq password:digest
+
+    rails g model Video nome:string url:text
 
 # scaffold
 

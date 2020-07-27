@@ -1,15 +1,33 @@
 class UsersController < ApplicationController
+  
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  before_action :authorize, except: [:new, :create]
+  #before_action :correct_user?, only: [:edit, :update, :destroy]
+
+  rescue_from ActiveRecord::RecordNotFound, :with => :rescue_not_found
+  
+  
+
+  
+  
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if params[:store]
+      #@persons = Person.where('nome LIKE ?', "%#{params[:store]}%")
+      @users = User.search(params[:store])
+    else
+      @users = User.all
+    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id]) 
+  rescue
+      render 'record_not_found'
   end
 
   # GET /users/new
@@ -19,6 +37,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
+  rescue
+      render 'record_not_found'
   end
 
   # POST /users
@@ -70,5 +91,12 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+
+  protected
+    def rescue_not_found
+      #head :forbidden
+      render :template => "/error/404.html.erb", :status => 404
     end
 end

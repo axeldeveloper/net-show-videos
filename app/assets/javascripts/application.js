@@ -18,10 +18,14 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+$(document).ready(function(){
 
-$('[data-js-search]').change(function(event) {
-    search_term = $(this).val();
-    alert('You are searching for ' + search_term);
+  /*    <%= text_field_tag 'search', '', data: {'js-search' => true} %>*/
+  $('[data-js-search]').change(function(event) {
+      search_term = $(this).val();
+      alert('You are searching for ' + search_term);
   });
+});
+
 
 //https://medium.com/@wintermeyer/authentication-from-scratch-with-rails-5-2-92d8676f6836  

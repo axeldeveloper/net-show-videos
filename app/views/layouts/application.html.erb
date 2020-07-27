@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Net Show Video</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Net Show Video" %></title>
@@ -8,19 +9,32 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
- 
- 
-  </head>
 
-  <body>
-        <header>
-            <%= render 'layouts/navigation' %>
-        </header>
 
-        <p id="notice"><%= notice %></p>
-        
-        <%= yield %>
-  </body>
+</head>
+
+<body>
+    <header>
+        <%= render 'layouts/navigation' %>
+    </header>
+    <% if notice %>
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>     
+            <p id="notice"><%= notice %></p>
+        </div>
+    <% end %>
+    <% if alert %>
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>     
+            <p id="notice"><%= alert %></p>
+        </div>
+    <% end %>
+    <hr>
+    <%= yield %>
+</body>
+
 </html>

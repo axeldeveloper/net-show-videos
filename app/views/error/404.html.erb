@@ -1,0 +1,35 @@
+<div class="container"> 
+	<div class="card">
+        <div class="card-header">
+            <i class="fa fa-fw fa-edit"></i> 
+            <strong>Register not found</strong>          
+            <%= link_to root_path , class:'float-right btn btn-purple btn-sm'  do %>
+                <i class="fa fa-fw fa-globe"> </i> Home
+            <% end %>
+        </div>
+			
+        <div class="col-md-12"> 
+            <hr> 
+            <% unless notice.nil? %>
+			<div class="alert alert-info" >
+                <button type="button" class="close" data-dismiss="alert">&times;</button>     
+                <p id="notice"><%= notice %></p>
+            </div>
+			<% end %>  			
+        </div> 
+		
+			<div class="card-body">
+				<div class="col-sm-8">	
+						<div class="form-group">
+							
+							<%= link_to videos_path , class:'btn btn-danger btn-sm"'  do %>
+								<i class="fa fa-fw fa-minus-circle"> </i> Voltar
+							<% end %>
+	
+						</div>
+				</div>
+			</div>
+	
+		</div>	  
+</div>  
+

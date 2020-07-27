@@ -1,5 +1,19 @@
-<h1>New User</h1>
+<div class="container">  
+		<div class="card">
+            <div class="card-header">
+				<i class="fa fa-fw fa-edit"></i> 
+				<strong> New User </strong>          	
+			</div>
+			
+			<div class="card-body">
+				<div class="col-sm-8">
+					
+					<%= render 'form', user: @user %>
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Back', users_path %>
+                    <%= link_to 'Back', users_path %>
+	
+				</div>
+			</div>
+	
+		</div>	  
+</div>  
