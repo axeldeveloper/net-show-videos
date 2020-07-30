@@ -60,14 +60,18 @@
 
                          <div class="collapse-content">
                              <!-- Text -->
-                             <p class="card-text collapse" id="collapseContent_<%= item.id %>">
+                            <p class="card-text collapse" id="collapseContent_<%= item.id %>">
                                  Watch the video here
                                  <a href="<%= item.url %>">click here</a>
-                             </p>
-                             <!-- Button -->
-                             <a class="btn btn-outline-primary btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse" href="#collapseContent_<%= item.id %>" aria-expanded="false" aria-controls="collapseContent">Details</a>
-                             <i class="fa fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
-                             <span id="btn_view_<%= item.id %>" data-id="<%= item.id %>" class="badge badge-secondary float-right p-1 my-1 mr-3"><%= item.view.total %></span>
+                            </p>
+                            <!-- Button -->
+                            <a class="btn btn-outline-primary btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse" href="#collapseContent_<%= item.id %>" aria-expanded="false" aria-controls="collapseContent">Details</a>
+                            <i class="fa fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+                            
+                            <% if item.view != nil %>
+                                <span id="btn_view_<%= item.id %>" data-id="<%= item.id %>" class="badge badge-secondary float-right p-1 my-1 mr-3"><%= item.view.total %></span>
+                            <% end %>
+
 
                          </div>
 

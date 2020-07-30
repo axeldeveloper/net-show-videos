@@ -20,11 +20,9 @@
 
     rails g model Video nome:string url:text
 
-    rails g model view total:integer video:references
-
-    # rails g model Video user:references
-
     rails g migration add_user_reference_to_video user:references
+    
+    rails g model view total:integer video:references
 
 # scaffold
 
