@@ -72,5 +72,12 @@ rails server
 Rails version: 5.2.4.3
 Ruby version: 2.5.5 (x86_64-linux)
 
+
+# test 
+bundle exec rake db:drop RAILS_ENV=test
+bundle exec rake db:create RAILS_ENV=test
+bundle exec rake db:schema:load RAILS_ENV=test
+
+
 # https://3rd-edition.railstutorial.org/book/log_in_log_out
 https://github.com/comfy/comfortable-mexican-sofa

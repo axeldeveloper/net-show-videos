@@ -16,6 +16,11 @@ class VideosControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should not save video without title" do
+    video = Video.new 
+    assert_not video.save
+  end
+
   test "should get create" do
     get videos_create_url
     assert_response :success
