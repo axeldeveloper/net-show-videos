@@ -20,6 +20,15 @@ tmp/**/*
 !/log/.keep
 !/tmp/.keep
 
+# Ignore all logfiles and tempfiles.
+/tmp/pids/*              # this line
+!/log/.keep
+!/tmp/.keep
+!/tmp/pids               # this line
+!/tmp/pids/.keep         # and this line
+
+
+
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
@@ -33,14 +42,14 @@ tmp/**/*
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-db/schema.rb
+#db/schema.rb
 db/development_structure.sql
 db/test.sqlite3-journal
 pkg
 rdoc
 /tmp
 public/system/
-Gemfile.lock
+# Gemfile.lock
 .rvmrc
 .ruby-version
 .ruby-gemset

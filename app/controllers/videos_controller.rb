@@ -1,7 +1,10 @@
 class VideosController < ApplicationController
 
-    # before_action :authorize, except: [:new, :create]
+    before_action :authorize 
     # before_action :correct_user?, only: [:edit, :update, :destroy]
+    # before_action :correct_user?, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+   
+    before_action :helper_actual_user, only: [:create] 
     rescue_from ActiveRecord::RecordNotFound, :with => :rescue_not_found
 
   def index
@@ -24,12 +27,16 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.new(setparams)         
-        if  @video.save  
+    puts @current_user.name
+    @nome = params[:video][:nome]
+    @url  =  params[:video][:url]
+    #  #user_id: _user.id
+    @video = Video.create(nome: @nome,  url:  @url, user: @current_user)
+        if  @video  
             flash[:notice] = 'Video added!'   
             redirect_to videos_path              
-        else   
-            flash[:alert] = 'Failed to create Video!'   
+        else                   
+            flash[:alert] = @video.errors.full_messages.to_sentence
             render :new        
         end      
   end
@@ -67,8 +74,8 @@ class VideosController < ApplicationController
     end
   
   protected
-  def rescue_not_found
-    #head :forbidden
-    render :template => "/error/404.html.erb", :status => 404
-  end
+    def rescue_not_found
+      #head :forbidden
+      render :template => "/error/404.html.erb", :status => 404
+    end
 end

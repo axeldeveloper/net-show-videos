@@ -3,12 +3,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   before_action :authorize, except: [:new, :create]
-  #before_action :correct_user?, only: [:edit, :update, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound, :with => :rescue_not_found
   
-  
-
   
   
   # GET /users
@@ -25,7 +22,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id]) 
+      @user = User.find(params[:id]) 
   rescue
       render 'record_not_found'
   end

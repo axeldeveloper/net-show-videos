@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+
   resources :videos
   resources :users
   resources :home
@@ -19,6 +20,9 @@ Rails.application.routes.draw do
   get 'videos/edit'
   get 'videos/update'
   get 'videos/destroy'
+
+  #get 'views/create'
+  get '/views/:id', to: 'views#create', as: 'create'
   
   get 'sessions/new'
   get 'sessions/create'

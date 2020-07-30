@@ -13,8 +13,6 @@
 
     <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/video.js/7.0.0/video-js.css' %>
 
-
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     
@@ -23,21 +21,13 @@
     <script src="https://unpkg.com/videojs-flash/dist/videojs-flash.js"></script>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.js' %>
 
-    
-
-
-
-
-
-
-
-
 </head>
 
 <body>
     <header>
         <%= render 'layouts/navigation' %>
     </header>
+   
     <% if notice %>
         <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert">&times;</button>     
@@ -52,6 +42,8 @@
     <% end %>
     <hr>
     <%= yield %>
+
+     <%= debug(params) if Rails.env.development? %>
 </body>
 
 </html>

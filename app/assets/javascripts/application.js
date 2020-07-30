@@ -25,7 +25,9 @@ $(document).ready(function(){
       search_term = $(this).val();
       alert('You are searching for ' + search_term);
   });
+
+
 });
 
 
-//https://medium.com/@wintermeyer/authentication-from-scratch-with-rails-5-2-92d8676f6836  
+ 

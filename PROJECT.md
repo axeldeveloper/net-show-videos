@@ -20,6 +20,12 @@
 
     rails g model Video nome:string url:text
 
+    rails g model view total:integer video:references
+
+    # rails g model Video user:references
+
+    rails g migration add_user_reference_to_video user:references
+
 # scaffold
 
     rails g scaffold User name:string email:uniq password:digest
@@ -68,5 +74,5 @@ rails server
 Rails version: 5.2.4.3
 Ruby version: 2.5.5 (x86_64-linux)
 
-
+# https://3rd-edition.railstutorial.org/book/log_in_log_out
 https://github.com/comfy/comfortable-mexican-sofa
